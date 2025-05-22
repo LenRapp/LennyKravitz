@@ -82,7 +82,10 @@ Utiliser un système de routing avancé
 
 Consommer une API externe (YouTube)
 
-##💡 Améliorations futures
+---
+
+## 💡 Améliorations futures
+
 🎼 Ajout d’une section paroles de chansons
 
 🖼️ Galerie photo interactive
