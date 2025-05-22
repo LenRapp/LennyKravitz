@@ -7,22 +7,22 @@ Explorez ses vidéos, découvrez son histoire et plongez dans son univers musica
 
 ## 🧭 Navigation du site
 
-### 🏠 Accueil (`/`)
+### 🏠 Accueil
 - Présentation visuelle du site
 - Image ou bannière inspirée de Lenny Kravitz
 - Accès rapide aux autres sections
 
-### 🎥 Toutes les vidéos (`/videos`)
+### 🎥 Toutes les vidéos
 - Liste complète des vidéos YouTube de Lenny Kravitz
 - Miniatures, titres et aperçu
 - Chargement dynamique via l’API YouTube
 
-### 🔍 Détail d’une vidéo (`/videos/:id`)
+### 🔍 Détail d’une vidéo
 - Affichage de la vidéo sélectionnée
 - Titre, description, date de publication
 - Suggestions de vidéos associées
 
-### 📖 Histoire (`/histoire`)
+### 📖 Histoire
 - Biographie complète de Lenny Kravitz
 - Moments clés de sa carrière
 - Photos et anecdotes marquantes
@@ -52,10 +52,6 @@ src/
 ├── App.vue # Composant racine
 └── main.ts # Entrée de l'application
 
-yaml
-Copier
-Modifier
-
 ---
 
 ## 🔑 Intégration de l’API YouTube
@@ -74,7 +70,10 @@ npm install
 
 # Lancer le serveur de développement
 npm run dev
-🎯 Objectifs du projet
+```
+---
+
+## 🎯 Objectifs du projet
 Créer un site élégant et fonctionnel pour les fans
 
 Approfondir ses compétences en Vue 3 + TypeScript
@@ -83,7 +82,7 @@ Utiliser un système de routing avancé
 
 Consommer une API externe (YouTube)
 
-💡 Améliorations futures
+##💡 Améliorations futures
 🎼 Ajout d’une section paroles de chansons
 
 🖼️ Galerie photo interactive
