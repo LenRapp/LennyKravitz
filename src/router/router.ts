@@ -1,7 +1,8 @@
 import {createRouter, createWebHistory} from "vue-router"
 import type { RouteRecordRaw } from "vue-router"
 import HomePage from "../views/HomePage.vue"
-import VideoDetail from "@/views/VideoDetail.vue"
+import Album from "@/views/Album.vue"
+import History from "@/views/History.vue"
 
 const routes: RouteRecordRaw[] = [
     {
@@ -10,11 +11,17 @@ const routes: RouteRecordRaw[] = [
         component: HomePage
     },
     {
-        path: '/video/:id',
-        name: "Video",
-        component: VideoDetail
-    }
+        path: '/album',
+        name: "Album",
+        component: Album
+    },
+    {
+        path: '/history',
+        name: "History",
+        component: History
+    },
 ]
+
 const router = createRouter({
     history: createWebHistory(),
     routes
