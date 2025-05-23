@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #app {
+    @apply font-normal;
+  }
+
+  a,
+  .green {
+    @apply no-underline text-[hsla(160,100%,37%,1)] transition-[0.4s] p-[3px];
+  }
+
+  @media (hover: hover) {
+    a:hover {
+      @apply bg-[hsla(160,100%,37%,0.2)];
+    }
+  }
+
+  @media (min-width: 1024px) {
+    /* body {
+      @apply flex place-items-center;
+    } */
+    #app {
+      @apply p-0;
+    }
+  }
+}
+
+@layer components {
+  .hero-section {
+    @apply min-h-screen relative overflow-hidden bg-black text-white;
+  }
+
+  .rock-text {
+    @apply font-bold tracking-wider uppercase;
+  }
+
+  .soul-text {
+    @apply font-light italic;
+  }
+
+  .chic-element {
+    @apply border border-white/20 backdrop-blur-sm;
+  }
+
+  .dynamic-bg {
+    @apply absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90;
+  }
+
+  .immersive-content {
+    @apply relative z-10 container mx-auto px-4 py-16;
+  }
+}
