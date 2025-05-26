@@ -3,6 +3,7 @@ import type { RouteRecordRaw } from "vue-router"
 import HomePage from "../views/HomePage.vue"
 import Album from "@/views/Album.vue"
 import History from "@/views/History.vue"
+import Style from "@/views/Style.vue"
 
 const routes: RouteRecordRaw[] = [
     {
@@ -19,6 +20,11 @@ const routes: RouteRecordRaw[] = [
         path: '/history',
         name: "History",
         component: History
+    },
+    {
+        path: '/style',
+        name: "Style",
+        component: Style
     },
 ]
 

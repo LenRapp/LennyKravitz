@@ -32,10 +32,12 @@
           <h3 class="rock-text text-xl mb-4">Musique</h3>
           <p class="soul-text">Découvrez l'univers musical unique de Lenny Kravitz</p>
         </div>
-        <div class="chic-element p-6 rounded-lg transform hover:scale-105 transition-transform">
-          <h3 class="rock-text text-xl mb-4">Style</h3>
-          <p class="soul-text">Explorez son influence sur la mode et le design</p>
-        </div>
+        <router-link to="/style" class="block">
+          <div class="chic-element p-6 rounded-lg transform hover:scale-105 transition-transform cursor-pointer">
+            <h3 class="rock-text text-xl mb-4">Style</h3>
+            <p class="soul-text">Explorez son influence sur la mode et le design</p>
+          </div>
+        </router-link>
         <div class="chic-element p-6 rounded-lg transform hover:scale-105 transition-transform">
           <h3 class="rock-text text-xl mb-4">Actualités</h3>
           <p class="soul-text">Restez informé des dernières nouvelles</p>
