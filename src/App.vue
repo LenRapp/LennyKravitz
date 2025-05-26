@@ -1,11 +1,11 @@
 <template>
-  <HeaderNavBarre />
+  <Header />
   <RouterView />
 </template>
 
 
 <script setup lang="ts">
-import HeaderNavBarre from './components/HeaderNavBarre.vue'
+import Header from './components/Header.vue'
 </script>
 
 
