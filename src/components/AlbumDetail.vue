@@ -31,6 +31,15 @@
             <div v-for="(track, index) in tracks" :key="track.id" 
                  class="flex items-center justify-between p-4 rounded-lg hover:bg-white/5 transition-colors">
               <div class="flex items-center gap-4">
+                <button 
+                  @click="playTrack(track)"
+                  class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
+                >
+                  <font-awesome-icon 
+                    :icon="currentPlayingId === track.id ? 'pause' : 'play'" 
+                    class="text-white"
+                  />
+                </button>
                 <span class="text-white/60 w-8">{{ index + 1 }}</span>
                 <div>
                   <h3 class="rock-text text-lg">{{ track.title }}</h3>
@@ -46,13 +55,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 interface Track {
   id: number
   title: string
   duration: number
+  preview: string
 }
 
 interface Artist {
@@ -72,6 +82,8 @@ const loading = ref(true)
 const error = ref('')
 const album = ref<Album | null>(null)
 const tracks = ref<Track[]>([])
+const currentPlayingId = ref<number | null>(null)
+const audioRef = ref<HTMLAudioElement | null>(null)
 
 const formatDuration = (seconds: number) => {
   const minutes = Math.floor(seconds / 60)
@@ -99,8 +111,39 @@ const fetchAlbumData = async () => {
   }
 }
 
+const playTrack = (track: Track) => {
+  if (currentPlayingId.value === track.id) {
+    // Si on clique sur le même morceau, on arrête la lecture
+    if (audioRef.value) {
+      audioRef.value.pause()
+      audioRef.value.currentTime = 0
+    }
+    currentPlayingId.value = null
+  } else {
+    // Si on clique sur un nouveau morceau
+    if (audioRef.value) {
+      audioRef.value.pause()
+    }
+    currentPlayingId.value = track.id
+    // On crée un nouvel élément audio
+    audioRef.value = new Audio(track.preview)
+    
+    audioRef.value.addEventListener('ended', () => {
+      currentPlayingId.value = null
+    })
+    
+    audioRef.value.play()
+  }
+}
+
 onMounted(() => {
   fetchAlbumData()
+})
+
+onUnmounted(() => {
+  if (audioRef.value) {
+    audioRef.value.pause()
+  }
 })
 </script>
 
