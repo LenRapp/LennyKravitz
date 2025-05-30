@@ -21,6 +21,18 @@
             <p class="soul-text text-xl mb-4">{{ album.artist.name }}</p>
             <p class="text-white/80 mb-4">Sorti le {{ new Date(album.release_date).toLocaleDateString() }}</p>
             <p class="text-white/80">{{ album.record_type }}</p>
+            
+            <!-- Section des récompenses -->
+            <div v-if="album.awards && album.awards.length > 0" class="mt-4">
+              <h3 class="rock-text text-xl mb-2">Récompenses</h3>
+              <ul class="space-y-2">
+                <li v-for="(award, index) in album.awards" :key="index" 
+                    class="flex items-center gap-2 text-white/80">
+                  <font-awesome-icon icon="trophy" class="text-yellow-400" />
+                  <span>{{ award }}</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -75,6 +87,7 @@ interface Album {
   artist: Artist
   release_date: string
   record_type: string
+  awards?: string[]
 }
 
 const route = useRoute()
