@@ -25,6 +25,7 @@ interface DeezerTracksResponse {
     duration: number
     preview: string
   }>
+  next?: string
 }
 
 interface AwardMap {
@@ -59,39 +60,53 @@ const awardsByAlbum: AwardMap = {
 };
   
 
-const getAlbum: RequestHandler<{ id: string }> = async (req, res) => {
+const getAlbum: express.RequestHandler<{ id: string }> = async (req, res) => {
   const { id } = req.params
 
   try {
-    const response = await fetch(`https://api.deezer.com/album/${id}`)
-    if (!response.ok) {
-      res.status(response.status).send('Erreur API Deezer')
+    // Récupérer d'abord les détails de l'album
+    const albumResponse = await fetch(`https://api.deezer.com/album/${id}`)
+    if (!albumResponse.ok) {
+      res.status(albumResponse.status).send('Erreur API Deezer pour l\'album')
       return
     }
+    const data = await albumResponse.json() as DeezerAlbumResponse
+    console.log('Détails de l\'album récupérés:', data.title)
 
-    const data = await response.json() as DeezerAlbumResponse
-    
-    // Vérification des morceaux
-    if (!data.tracks || !data.tracks.data || data.tracks.data.length === 0) {
-      console.warn(`Aucun morceau trouvé pour l'album ${id} (${data.title})`)
-      // Essayer de récupérer les morceaux séparément
-      const tracksResponse = await fetch(`https://api.deezer.com/album/${id}/tracks`)
-      if (tracksResponse.ok) {
-        const tracksData = await tracksResponse.json() as DeezerTracksResponse
-        data.tracks = { data: tracksData.data || [] }
+    // Récupérer les morceaux avec une requête séparée
+    const tracksResponse = await fetch(`https://api.deezer.com/album/${id}/tracks?limit=100&index=0`)
+    if (!tracksResponse.ok) {
+      res.status(tracksResponse.status).send('Erreur API Deezer pour les morceaux')
+      return
+    }
+    const tracksData = await tracksResponse.json() as DeezerTracksResponse
+    console.log('Première page de morceaux récupérée:', tracksData.data.length)
+
+    // Vérifier si nous avons besoin de récupérer plus de morceaux
+    if (data.nb_tracks > tracksData.data.length) {
+      console.log(`Récupération des morceaux supplémentaires pour l'album ${data.title}`)
+      const remainingTracksResponse = await fetch(`https://api.deezer.com/album/${id}/tracks?limit=100&index=100`)
+      if (remainingTracksResponse.ok) {
+        const remainingTracksData = await remainingTracksResponse.json() as DeezerTracksResponse
+        tracksData.data = [...tracksData.data, ...remainingTracksData.data]
+        console.log('Morceaux supplémentaires récupérés:', remainingTracksData.data.length)
       }
     }
+
+    // Mettre à jour les morceaux dans la réponse
+    data.tracks = { data: tracksData.data }
+    console.log(`Nombre total de morceaux récupérés pour ${data.title}: ${tracksData.data.length} sur ${data.nb_tracks} attendus`)
 
     // Ajouter les récompenses à la réponse
     data.awards = awardsByAlbum[id] || []
     res.json(data)
   } catch (error) {
-    console.error(error)
+    console.error('Erreur détaillée:', error)
     res.status(500).json({ error: 'Erreur serveur proxy' })
   }
 }
 
-const getArtistAlbums: RequestHandler<{ id: string }> = async (req, res) => {
+const getArtistAlbums: express.RequestHandler<{ id: string }> = async (req, res) => {
   const { id } = req.params
 
   try {
@@ -117,3 +132,4 @@ app.use(router)
 app.listen(PORT, () => {
   console.log(`Proxy API running at http://localhost:${PORT}`)
 })
+

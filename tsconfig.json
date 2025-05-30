@@ -16,5 +16,5 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.vue"],
-  "exclude": ["node_modules", "src/views/AlbumDetail.vue"]
+  "exclude": ["node_modules", "src/components/AlbumDetail.vue"]
 }
