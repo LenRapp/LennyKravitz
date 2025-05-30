@@ -38,10 +38,12 @@
             <p class="soul-text">Explorez son influence sur la mode et le design</p>
           </div>
         </router-link>
-        <div class="chic-element p-6 rounded-lg transform hover:scale-105 transition-transform">
-          <h3 class="rock-text text-xl mb-4">Actualités</h3>
-          <p class="soul-text">Restez informé des dernières nouvelles</p>
-        </div>
+        <router-link to="/actualities" class="block">
+          <div class="chic-element p-6 rounded-lg transform hover:scale-105 transition-transform">
+            <h3 class="rock-text text-xl mb-4">Actualités</h3>
+            <p class="soul-text">Restez informé des dernières nouvelles</p>
+          </div>
+        </router-link>
       </div>
     </div>
   </section>
