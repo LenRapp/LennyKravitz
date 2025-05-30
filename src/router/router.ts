@@ -5,6 +5,7 @@ import Album from '../views/Album.vue'
 import AlbumDetail from '../components/AlbumDetail.vue'
 import History from '../views/History.vue'
 import Style from '../views/Style.vue'
+import Actualites from '../views/Actualites.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -31,11 +32,16 @@ const routes: RouteRecordRaw[] = [
     path: '/style',
     name: 'Style',
     component: Style
+  },
+  {
+    path: '/actualities',
+    name: 'Actualities',
+    component: Actualites
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 
