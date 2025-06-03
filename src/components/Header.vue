@@ -40,12 +40,12 @@ onUnmounted(() => {
 
 <style scoped>
 .nav-link {
-  @apply text-white/80 hover:text-white text-lg transition-colors duration-300 relative;
+  @apply text-white/80 hover:text-blue-400 text-lg transition-colors duration-300 relative;
 }
 
 .nav-link::after {
   content: '';
-  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300;
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300;
 }
 
 .nav-link:hover::after {
@@ -53,7 +53,7 @@ onUnmounted(() => {
 }
 
 .router-link-active {
-  @apply text-white;
+  @apply text-blue-400;
 }
 
 .router-link-active::after {
