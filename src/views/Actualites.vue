@@ -69,21 +69,21 @@ const actualites = ref<Actualite[]>([
     description: "Lenny Kravitz annonce la sortie de son nouvel album 'Blue Electric Light' prévue pour le 15 mars 2024.",
     date: "15 Février 2024",
     image: "/albums/album12.jpg",
-    link: "#"
+    link: "https://www.rtl2.fr/evenements/lenny-kravitz-le-retour-tant-attendu-avec-blue-electric-light-7900387677"
   },
   {
     title: "Tournée mondiale 2024/2025",
     description: "Lenny Kravitz dévoile les dates de sa nouvelle tournée mondiale qui passera par l'Europe cet été.",
     date: "1 Février 2024",
     image: "/Concert2024.jpg",
-    link: "#"
+    link: "https://www.parisladefense-arena.com/evenement/lenny-kravitz/#:~:text=Une%20soir%C3%A9e%20%C3%A9lectrisante%20%C3%A0%20ne,exceptionnelle%20le%2029%20mars%202025."
   },
   {
     title: "Lenny Kravitz clôture le Jazz Fest 2025 aux côtés de Patti LaBelle",
     description: "Lenny Kravitz a enflammé la scène du Jazz Fest 2025 aux côtés de Patti LaBelle lors d’un concert de clôture spectaculaire à La Nouvelle-Orléans.",
     date: "4 mai 2025",
     image: "/JazzFest.webp",
-    link: "#"
+    link: "https://www.youtube.com/watch?v=TsF9ZbqeEow"
   }
 ])
 
