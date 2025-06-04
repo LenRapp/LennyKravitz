@@ -44,10 +44,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faInstagram, faYoutube, faFacebook, faDeezer } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram, faYoutube, faFacebook, faDeezer, faSpotify, faXTwitter, faTiktok, faApple } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faInstagram, faYoutube, faFacebook, faDeezer)
+library.add(faInstagram, faYoutube, faFacebook, faDeezer, faSpotify, faXTwitter, faTiktok, faApple)
 
 interface Actualite {
   title: string
@@ -59,7 +59,7 @@ interface Actualite {
 
 interface ReseauSocial {
   name: string
-  icon: string
+  icon: string[] | string
   link: string
 }
 
@@ -80,7 +80,7 @@ const actualites = ref<Actualite[]>([
   },
   {
     title: "Lenny Kravitz clôture le Jazz Fest 2025 aux côtés de Patti LaBelle",
-    description: "Lenny Kravitz a enflammé la scène du Jazz Fest 2025 aux côtés de Patti LaBelle lors d’un concert de clôture spectaculaire à La Nouvelle-Orléans.",
+    description: "Lenny Kravitz a enflammé la scène du Jazz Fest 2025 aux côtés de Patti LaBelle lors d'un concert de clôture spectaculaire à La Nouvelle-Orléans.",
     date: "4 mai 2025",
     image: "/JazzFest.webp",
     link: "https://www.youtube.com/watch?v=TsF9ZbqeEow"
@@ -90,23 +90,43 @@ const actualites = ref<Actualite[]>([
 const reseauxSociaux = ref<ReseauSocial[]>([
   {
     name: 'Instagram',
-    icon: 'fa-brands fa-instagram',
+    icon: ['fab', 'instagram'],
     link: 'https://www.instagram.com/lennykravitz'
   },
   {
     name: 'YouTube',
-    icon: 'fa-brands fa-youtube',
+    icon: ['fab', 'youtube'],
     link: 'https://www.youtube.com/@LennyKravitz'
   },
   {
     name: 'Facebook',
-    icon: 'fa-brands fa-facebook',
+    icon: ['fab', 'facebook'],
     link: 'https://www.facebook.com/lennykravitz'
   },
   {
     name: 'Deezer',
-    icon: 'fa-brands fa-deezer',
+    icon: ['fab', 'deezer'],
     link: 'https://www.deezer.com/fr/artist/189'
+  },
+  {
+    name: 'Spotify',
+    icon: ['fab', 'spotify'],
+    link: 'https://open.spotify.com/intl-fr/artist/5gznATMVO85ZcLTkE9ULU7'
+  },
+  {
+    name: 'X',
+    icon: ['fab', 'x-twitter'],
+    link: 'https://x.com/lennykravitz'
+  },
+  {
+    name: 'TikTok',
+    icon: ['fab', 'tiktok'],
+    link: 'https://www.tiktok.com/@lennykravitz'
+  },
+  {
+    name: 'Apple Music',
+    icon: ['fab', 'apple'],
+    link: 'https://music.apple.com/fr/artist/lenny-kravitz/189'
   }
 ])
 </script>
