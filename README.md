@@ -4,7 +4,7 @@ Un site web moderne dédié à Lenny Kravitz, présentant sa discographie, son h
 
 ## Fonctionnalités
 
-- 🎵 Discographie complète avec aperçus audio des morceaux
+- 🎵 Discographie complète avec aperçus audio des morceaux via l'API Deezer
 - 📱 Design responsive et moderne
 - 🎨 Interface utilisateur immersive avec animations fluides
 - 🎸 Intégration avec l'API Deezer pour les données musicales
@@ -84,7 +84,7 @@ lennykravitz/
 ## Fonctionnalités Principales
 
 ### Discographie
-- Liste complète des albums
+- Liste complète des albums via l'API Deezer
 - Détails de chaque album
 - Aperçus audio des morceaux
 - Informations sur les dates de sortie et le type d'album
@@ -121,15 +121,10 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 - Image ou bannière inspirée de Lenny Kravitz
 - Accès rapide aux autres sections
 
-### 🎥 Toutes les vidéos
-- Liste complète des vidéos YouTube de Lenny Kravitz
-- Miniatures, titres et aperçu
-- Chargement dynamique via l'API YouTube
-
-### 🔍 Détail d'une vidéo
-- Affichage de la vidéo sélectionnée
-- Titre, description, date de publication
-- Suggestions de vidéos associées
+### 🎵 Discographie
+- Liste complète des albums de Lenny Kravitz
+- Aperçus audio via l'API Deezer
+- Informations détaillées sur chaque album
 
 ### 📖 Histoire
 - Biographie complète de Lenny Kravitz
@@ -145,8 +140,8 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 | Vue.js 3     | Framework JavaScript front-end         |
 | TypeScript   | Typage statique et sécurité du code    |
 | Vue Router   | Gestion des routes / navigation        |
-| Axios        | Requêtes HTTP vers l'API YouTube       |
-| SCSS/Tailwind (optionnel) | Stylisation responsive et moderne |
+| Axios        | Requêtes HTTP vers l'API Deezer        |
+| Tailwind CSS | Stylisation responsive et moderne      |
 
 ---
 
@@ -155,19 +150,19 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 src/
 ├── assets/ # Images et médias
 ├── components/ # Composants réutilisables
-├── pages/ # Pages (Accueil, Vidéos, Détail, Histoire)
+├── views/ # Pages principales
 ├── router/ # Configuration du routing
-├── services/ # Appels à l'API YouTube
+├── services/ # Appels à l'API Deezer
 ├── App.vue # Composant racine
 └── main.ts # Entrée de l'application
 
 ---
 
-## 🔑 Intégration de l'API YouTube
+## 🔑 Intégration de l'API Deezer
 
-- Utilisation de **YouTube Data API v3**
-- Recherche de vidéos via nom ou ID de chaîne
-- Affichage dynamique et pagination (optionnel)
+- Utilisation de l'API Deezer
+- Recherche d'albums et de morceaux
+- Affichage dynamique des aperçus audio
 
 ---
 
@@ -183,23 +178,16 @@ npm run dev
 ---
 
 ## 🎯 Objectifs du projet
-Créer un site élégant et fonctionnel pour les fans
-
-Approfondir ses compétences en Vue 3 + TypeScript
-
-Utiliser un système de routing avancé
-
-Consommer une API externe (YouTube)
+- Créer un site élégant et fonctionnel pour les fans
+- Approfondir ses compétences en Vue 3 + TypeScript
+- Utiliser un système de routing avancé
+- Consommer l'API Deezer pour les données musicales
 
 ---
 
 ## 💡 Améliorations futures
 
 🎼 Ajout d'une section paroles de chansons
-
 🖼️ Galerie photo interactive
-
-🌙 Thème sombre / clair
-
-🧑‍🎤 Timeline de la carrière de Lenny Kravitz
+🎧 Intégration de playlists personnalisées
 
