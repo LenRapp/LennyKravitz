@@ -191,3 +191,16 @@ npm run dev
 🖼️ Galerie photo interactive
 🎧 Intégration de playlists personnalisées
 
+## 📸 Captures d’écran
+
+![Acceuil](public/capture/acceuil.png)
+
+![Actualités](public/capture/actus.png)
+
+![Style](public/capture/style.png)
+
+![Histoire](public/capture/histoire.png)
+
+![Musique](public/capture/musique.png)
+
+![Albums](public/capture/album.png)
